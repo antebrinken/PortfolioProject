@@ -3,7 +3,7 @@ import SectionHeading from '../../components/SectionHeading'
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-24 sm:py-32">
+    <section id="projects" className="relative isolate overflow-hidden py-24 sm:py-32">
       <Container>
         <SectionHeading
           eyebrow="Projects"
@@ -23,7 +23,7 @@ export default function Projects() {
           ))}
         </div>
       </Container>
+      <span aria-hidden="true" className="glow glow--projects" />
     </section>
   )
 }
-

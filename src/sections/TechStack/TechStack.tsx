@@ -16,7 +16,7 @@ export default function TechStack() {
   ]
 
   return (
-    <section id="tech" className="py-24 sm:py-32">
+    <section id="tech" className="relative isolate overflow-hidden py-24 sm:py-32">
       <Container>
         <SectionHeading
           eyebrow="Tech Stack"
@@ -33,7 +33,7 @@ export default function TechStack() {
           ))}
         </div>
       </Container>
+      <span aria-hidden="true" className="glow glow--tech" />
     </section>
   )
 }
-

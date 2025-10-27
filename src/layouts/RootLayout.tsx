@@ -11,10 +11,13 @@ const variants = {
 export default function RootLayout() {
   const location = useLocation()
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-white relative isolate">
+      {/* Global noise texture behind content */}
+      <div aria-hidden="true" className="noise" />
       <Header />
       <AnimatePresence mode="wait">
         <motion.main
+          className="relative z-10"
           key={location.pathname}
           variants={variants}
           initial="initial"
@@ -28,4 +31,3 @@ export default function RootLayout() {
     </div>
   )
 }
-

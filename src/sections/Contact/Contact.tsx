@@ -3,7 +3,7 @@ import SectionHeading from '../../components/SectionHeading'
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-24 sm:py-32">
+    <section id="contact" className="relative isolate overflow-hidden py-24 sm:py-32">
       <Container>
         <SectionHeading
           eyebrow="Contact"
@@ -21,7 +21,7 @@ export default function Contact() {
           </a>
         </div>
       </Container>
+      <span aria-hidden="true" className="glow glow--contact" />
     </section>
   )
 }
-
