@@ -6,21 +6,14 @@ export default function Contact() {
     <section id="contact" className="relative isolate py-24 sm:py-32 scroll-mt-28 md:scroll-mt-32">
       <Container>
         <SectionHeading
-          eyebrow="Contact"
+          eyebrow=""
           title="Let's build something great"
           description="Open to collaborations, full-time roles, and interesting problems."
           align="center"
         />
 
-        <div className="mt-10 flex justify-center">
-          <a
-            
-            className="inline-flex items-center justify-center rounded-lg border border-white/60 px-5 py-2.5 font-medium text-white transition hover:border-white hover:bg-white/10"
-          >
-            Contact me
-          </a>
-        </div>
-        <p className="mt-8 text-center text-sm text-white/70">Let's connect</p>
+        
+        <p className="mt-8 text-center text-sm text-white/70"> Contact me on my socials</p>
 
         {/* Social icons */}
         <div className="mt-6 flex items-center justify-center gap-4">

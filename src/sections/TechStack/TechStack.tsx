@@ -29,8 +29,8 @@ export default function TechStack() {
     <section id="tech" className="relative isolate py-24 sm:py-32 scroll-mt-28 md:scroll-mt-32">
       <Container>
         <SectionHeading
-          eyebrow="Tech Stack"
-          title="The tech I use "
+          eyebrow=""
+          title="The Tech Stack "
           description=""
           align="center"
         />

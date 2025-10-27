@@ -13,14 +13,44 @@ export default function Projects() {
         />
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {/* TODO: Replace with real projects */}
-          {[1, 2, 3].map((i) => (
-            <div key={i} className="rounded-xl border border-white/15 p-6 hover:border-white/30 transition">
-              <div className="text-sm text-white/60">Project {i}</div>
-              <div className="mt-2 text-lg font-semibold">Project Title {i}</div>
-              <p className="mt-2 text-sm text-white/70">Short description of the project, stack, and impact.</p>
+          {/* The Last TODO project */}
+          <div className="rounded-xl border border-white/15 p-6 hover:border-white/30 transition">
+            <div className="text-sm text-white/60">Web App</div>
+            <div className="mt-2 text-lg font-semibold">The Last TODO</div>
+            {/* Browser-style device chrome with full-bleed preview */}
+            <div className="mt-3 overflow-hidden rounded-lg border border-white/10 bg-black/50">
+              <div className="flex h-9 items-center gap-2 border-b border-white/10 bg-white/5 px-3">
+                <span className="h-2.5 w-2.5 rounded-full bg-red-400/80" />
+                <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/80" />
+                <span className="h-2.5 w-2.5 rounded-full bg-green-400/80" />
+                <div className="mx-auto h-5 w-1/2 rounded bg-white/10" />
+              </div>
+              <div className="aspect-[16/9] w-full">
+                <img
+                  src="/projects/last-todo.svg"
+                  alt="Screenshot preview of The Last TODO app"
+                  className="h-full w-full object-cover"
+                  loading="lazy"
+                />
+              </div>
             </div>
-          ))}
+            <p className="mt-3 text-sm text-white/70">
+              A clean and responsive TODO application. Source at
+              {' '}<a className="underline hover:text-white" href="https://github.com/Medieinstitutet/fed24s-the-last-todo-antebrinken" target="_blank" rel="noreferrer">github.com/Medieinstitutet/fed24s-the-last-todo-antebrinken</a>.
+            </p>
+            <div className="mt-4 flex flex-wrap items-center gap-2 text-xs text-white/80">
+              <span className="rounded-md border border-white/20 px-2 py-1">React</span>
+              <span className="rounded-md border border-white/20 px-2 py-1">TypeScript</span>
+              <span className="rounded-md border border-white/20 px-2 py-1">Tailwind</span>
+            </div>
+          </div>
+
+          {/* Placeholder tile */}
+          <div className="rounded-xl border border-white/15 p-6 hover:border-white/30 transition">
+            <div className="text-sm text-white/60">Project 3</div>
+            <div className="mt-2 text-lg font-semibold">Project Title 3</div>
+            <p className="mt-2 text-sm text-white/70">Short description of the project, stack, and impact.</p>
+          </div>
         </div>
       </Container>
       {/* Aurora removed for performance */}

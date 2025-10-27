@@ -6,9 +6,9 @@ export default function About() {
     <section id="about" className="relative isolate py-24 sm:py-32 scroll-mt-28 md:scroll-mt-32">
       <Container>
         <SectionHeading
-          eyebrow="About Me"
-          title="Engineer with a product mindset"
-          description="I value clarity, iteration, and impact. I work across the stack, collaborate closely with design, and aim for maintainable solutions that ship."
+          eyebrow=""
+          title="A social software engineer"
+          description="Hi, I'm Philip — a frontend developer based in Stockholm, Sweden. I’m passionate about creating digital experiences that feel simple, fast and meaningful. I love turning ideas into products that people actually enjoy using, and I’m always pushing myself to learn, explore and build better. My goal is to craft interfaces that make a real difference."
           align="center"
         />
       </Container>
