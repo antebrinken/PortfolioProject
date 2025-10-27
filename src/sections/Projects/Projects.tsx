@@ -16,7 +16,7 @@ export default function Projects() {
           {/* The Last TODO project */}
           <div className="rounded-xl border border-white/15 p-6 hover:border-white/30 transition">
             <div className="text-sm text-white/60">Web App</div>
-            <div className="mt-2 text-lg font-semibold">The Last TODO</div>
+            <div className="mt-2 text-lg font-semibold">The Last Todo</div>
             {/* Browser-style device chrome with full-bleed preview */}
             <div className="mt-3 overflow-hidden rounded-lg border border-white/10 bg-black/50">
               <div className="flex h-9 items-center gap-2 border-b border-white/10 bg-white/5 px-3">
@@ -27,7 +27,7 @@ export default function Projects() {
               </div>
               <div className="aspect-[16/9] w-full">
                 <img
-                  src="/projects/last-todo.svg"
+                  src="/projects/lasttodopng.png"
                   alt="Screenshot preview of The Last TODO app"
                   className="h-full w-full object-cover"
                   loading="lazy"
@@ -35,7 +35,7 @@ export default function Projects() {
               </div>
             </div>
             <p className="mt-3 text-sm text-white/70">
-              A clean and responsive TODO application. Source at
+              One of my last school projects before my internship started, a clean and responsive Todo application. Source at
               {' '}<a className="underline hover:text-white" href="https://github.com/Medieinstitutet/fed24s-the-last-todo-antebrinken" target="_blank" rel="noreferrer">github.com/Medieinstitutet/fed24s-the-last-todo-antebrinken</a>.
             </p>
             <div className="mt-4 flex flex-wrap items-center gap-2 text-xs text-white/80">
