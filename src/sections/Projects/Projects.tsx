@@ -6,9 +6,9 @@ export default function Projects() {
     <section id="projects" className="relative isolate py-24 sm:py-32 scroll-mt-28 md:scroll-mt-32">
       <Container>
         <SectionHeading
-          eyebrow="Projects"
-          title="Selected work"
-          description="A snapshot of things I’ve designed, built, and shipped."
+          eyebrow=""
+          title="Selected Projects"
+          description="A snapshot of things I’ve designed and built."
           align="center"
         />
 
@@ -45,11 +45,43 @@ export default function Projects() {
             </div>
           </div>
 
-          {/* Placeholder tile */}
+          {/* The Zoo project */}
           <div className="rounded-xl border border-white/15 p-6 hover:border-white/30 transition">
-            <div className="text-sm text-white/60">Project 3</div>
-            <div className="mt-2 text-lg font-semibold">Project Title 3</div>
-            <p className="mt-2 text-sm text-white/70">Short description of the project, stack, and impact.</p>
+            <div className="text-sm text-white/60">Website</div>
+            <div className="mt-2 text-lg font-semibold">The Zoo</div>
+            {/* Browser-style device chrome with full-bleed preview */}
+            <div className="mt-3 overflow-hidden rounded-lg border border-white/10 bg-black/50">
+              <div className="flex h-9 items-center gap-2 border-b border-white/10 bg-white/5 px-3">
+                <span className="h-2.5 w-2.5 rounded-full bg-red-400/80" />
+                <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/80" />
+                <span className="h-2.5 w-2.5 rounded-full bg-green-400/80" />
+                <div className="mx-auto h-5 w-1/2 rounded bg-white/10" />
+              </div>
+              <div className="aspect-[16/9] w-full">
+                <img
+                  src="/projects/zooapp.png"
+                  alt="Screenshot preview of The Zoo website"
+                  className="h-full w-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+            <p className="mt-3 text-sm text-white/70">
+              A school assignment exploring layout, accessibility, and clean UI for a zoo-themed site. Source at{' '}
+              <a
+                className="underline hover:text-white"
+                href="https://github.com/Medieinstitutet/fed24s-the-zoo-antebrinken"
+                target="_blank"
+                rel="noreferrer"
+              >
+                github.com/Medieinstitutet/fed24s-the-zoo-antebrinken
+              </a>.
+            </p>
+            <div className="mt-4 flex flex-wrap items-center gap-2 text-xs text-white/80">
+              <span className="rounded-md border border-white/20 px-2 py-1">React</span>
+              <span className="rounded-md border border-white/20 px-2 py-1">TypeScript</span>
+              <span className="rounded-md border border-white/20 px-2 py-1">REST API</span>
+            </div>
           </div>
         </div>
       </Container>

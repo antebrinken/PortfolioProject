@@ -42,7 +42,7 @@ export default function TechStack() {
               className="flex w-max items-stretch gap-4 animate-marquee-right group-hover:[animation-play-state:paused]"
               style={{ ['--marquee-duration' as any]: '38s' }}
             >
-              {[...items, ...items].map(({ label, Icon, blurb }, idx) => (
+              {[...items, ...items, ...items].map(({ label, Icon, blurb }, idx) => (
                 <div key={`r1-${label}-${idx}`} className="relative group/item shrink-0">
                   <div className="rounded-xl border border-white/15 px-4 py-3 text-center transition hover:border-white/30 hover:bg-white/5">
                     <div className="mx-auto mb-1 flex h-10 w-10 items-center justify-center rounded-lg bg-white/5">
