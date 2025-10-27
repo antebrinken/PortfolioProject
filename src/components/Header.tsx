@@ -1,18 +1,16 @@
 import { useEffect, useRef, useState } from 'react'
-import { NavLink, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 
-const linkBase =
-  'px-3 py-2 rounded-md text-sm font-medium transition-colors '
-const linkInactive = 'text-white/80 hover:text-white hover:bg-white/10'
-const linkActive = 'text-black bg-white'
+const linkBase = 'px-3 py-2 rounded-md text-sm font-medium transition-colors'
+const linkStyle = 'text-white/80 hover:text-white hover:bg-white/10'
 
 const links = [
-  { to: '/', label: 'Home', end: true },
-  { to: '/projects', label: 'Projects' },
-  { to: '/tech', label: 'Tech Stack' },
-  { to: '/about', label: 'About' },
-  { to: '/contact', label: 'Contact' },
+  { href: '#hero', label: 'Home' },
+  { href: '#projects', label: 'Projects' },
+  { href: '#tech', label: 'Tech Stack' },
+  { href: '#about', label: 'About' },
+  { href: '#contact', label: 'Contact' },
 ]
 
 export default function Header() {
@@ -84,23 +82,18 @@ export default function Header() {
   }, [open])
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-white/10 bg-black/70 backdrop-blur">
+    <header className="sticky top-0 z-40 w-full bg-black/60 backdrop-blur">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3 lg:px-8">
-        <NavLink to="/" className="font-semibold tracking-tight">
+        <a href="#hero" className="font-semibold tracking-tight">
           <span className="text-white">Portfolio</span>
-        </NavLink>
+        </a>
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-1">
-          {links.map(({ to, label, end }) => (
-            <NavLink
-              key={to}
-              to={to}
-              end={end as any}
-              className={({ isActive }) => linkBase + (isActive ? linkActive : linkInactive)}
-            >
+          {links.map(({ href, label }) => (
+            <a key={href} href={`/${href}`} className={`${linkBase} ${linkStyle}`}>
               {label}
-            </NavLink>
+            </a>
           ))}
         </div>
 
@@ -159,18 +152,15 @@ export default function Header() {
           >
             <div className="mx-auto max-w-7xl px-6 py-3 lg:px-8">
               <div className="flex flex-col gap-1">
-                {links.map(({ to, label, end }) => (
-                  <NavLink
-                    key={to}
-                    to={to}
-                    end={end as any}
-                    className={({ isActive }) =>
-                      'px-3 py-2 rounded-md text-base font-medium ' +
-                      (isActive ? 'text-black bg-white' : 'text-white/90 hover:text-white hover:bg-white/10')
-                    }
+                {links.map(({ href, label }) => (
+                  <a
+                    key={href}
+                    href={`/${href}`}
+                    onClick={() => setOpen(false)}
+                    className="px-3 py-2 rounded-md text-base font-medium text-white/90 hover:text-white hover:bg-white/10"
                   >
                     {label}
-                  </NavLink>
+                  </a>
                 ))}
               </div>
             </div>

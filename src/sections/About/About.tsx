@@ -3,7 +3,7 @@ import SectionHeading from '../../components/SectionHeading'
 
 export default function About() {
   return (
-    <section id="about" className="relative isolate overflow-hidden py-24 sm:py-32">
+    <section id="about" className="relative isolate py-24 sm:py-32 scroll-mt-28 md:scroll-mt-32">
       <Container>
         <SectionHeading
           eyebrow="About Me"
@@ -12,7 +12,7 @@ export default function About() {
           align="center"
         />
       </Container>
-      <span aria-hidden="true" className="glow glow--about" />
+      {/* Aurora removed for performance */}
     </section>
   )
 }
