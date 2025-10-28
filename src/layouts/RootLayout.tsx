@@ -14,6 +14,8 @@ export default function RootLayout() {
     <div className="min-h-screen bg-black text-white relative isolate">
       {/* Global noise texture behind content */}
       <div aria-hidden="true" className="noise" />
+      {/* Global static starfield background */}
+      <div aria-hidden className="stars" />
       <Header />
       <AnimatePresence mode="wait">
         <motion.main
