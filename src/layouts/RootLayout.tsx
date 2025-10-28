@@ -1,6 +1,7 @@
 import { Outlet, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 const variants = {
   initial: { opacity: 0, y: 12, filter: 'blur(4px)' },
@@ -11,7 +12,7 @@ const variants = {
 export default function RootLayout() {
   const location = useLocation()
   return (
-    <div className="min-h-screen bg-[#1e1e1e] text-[#EDEDED] relative isolate flex flex-col">
+    <div className="min-h-screen bg-canvas text-fg relative isolate flex flex-col">
       {/* Global noise texture behind content */}
       <div aria-hidden="true" className="noise" />
       {/* Global static starfield background */}
@@ -32,6 +33,7 @@ export default function RootLayout() {
           <Outlet />
         </motion.main>
       </AnimatePresence>
+      <Footer />
     </div>
   )
 }

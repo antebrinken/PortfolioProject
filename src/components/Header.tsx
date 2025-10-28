@@ -15,6 +15,7 @@ const links = [
 
 export default function Header() {
   const [open, setOpen] = useState(false)
+  const [activeId, setActiveId] = useState('hero')
   const location = useLocation()
   const menuRef = useRef<HTMLDivElement | null>(null)
 
@@ -81,20 +82,51 @@ export default function Header() {
     }
   }, [open])
 
+  // Scrollspy: highlight active section
+  useEffect(() => {
+    const ids = ['hero', 'projects', 'tech', 'about', 'contact']
+    const sections = ids
+      .map((id) => document.getElementById(id))
+      .filter(Boolean) as HTMLElement[]
+    if (sections.length === 0) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveId(entry.target.id)
+          }
+        })
+      },
+      {
+        root: null,
+        rootMargin: '-40% 0px -50% 0px',
+        threshold: [0, 0.25, 0.5, 0.75, 1],
+      }
+    )
+    sections.forEach((el) => observer.observe(el))
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <header className="sticky top-0 z-40 w-full bg-[#1e1e1e]/60 backdrop-blur">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3 lg:px-8">
         <a href="#hero" className="font-semibold tracking-tight">
-          <span className="text-[#EDEDED]">Portfolio</span>
+          <span className="text-[#EDEDED]">Philip Antebrink</span>
         </a>
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-1">
-          {links.map(({ href, label }) => (
-            <a key={href} href={`/${href}`} className={`${linkBase} ${linkStyle}`}>
-              {label}
-            </a>
-          ))}
+          {links.map(({ href, label }) => {
+            const id = href.replace('#', '')
+            const isActive = activeId === id
+            const activeCls = isActive ? 'text-[#EDEDED] bg-white/10' : ''
+            return (
+              <a key={href} href={`/${href}`} className={`${linkBase} ${linkStyle} ${activeCls}`}>
+                {label}
+              </a>
+            )
+          })}
         </div>
 
         {/* Mobile hamburger */}
@@ -152,16 +184,21 @@ export default function Header() {
           >
             <div className="mx-auto max-w-7xl px-6 py-3 lg:px-8">
               <div className="flex flex-col gap-1">
-                {links.map(({ href, label }) => (
-                  <a
-                    key={href}
-                    href={`/${href}`}
-                    onClick={() => setOpen(false)}
-                    className="px-3 py-2 rounded-md text-base font-medium text-[#EDEDED]/90 hover:text-[#EDEDED] hover:bg-white/10"
-                  >
-                    {label}
-                  </a>
-                ))}
+                {links.map(({ href, label }) => {
+                  const id = href.replace('#', '')
+                  const isActive = activeId === id
+                  const activeCls = isActive ? 'text-[#EDEDED] bg-white/10' : 'text-[#EDEDED]/90'
+                  return (
+                    <a
+                      key={href}
+                      href={`/${href}`}
+                      onClick={() => setOpen(false)}
+                      className={`px-3 py-2 rounded-md text-base font-medium hover:text-[#EDEDED] hover:bg-white/10 ${activeCls}`}
+                    >
+                      {label}
+                    </a>
+                  )
+                })}
               </div>
             </div>
           </motion.div>
