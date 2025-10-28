@@ -4,7 +4,8 @@ import SectionHeading from '../../components/SectionHeading'
 export default function Hero() {
   return (
     <section id="hero" className="relative isolate min-h-screen py-24 sm:py-32 flex items-center scroll-mt-28 md:scroll-mt-32">
-      <Container>
+      <div className="aurora aurora-hero" aria-hidden />
+      <Container className="relative z-10">
         <SectionHeading
           title="Philip Antebrink"
           description="A software engineer driven by passion, curiosity and impact."

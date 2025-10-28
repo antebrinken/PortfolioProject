@@ -4,7 +4,8 @@ import SectionHeading from '../../components/SectionHeading'
 export default function Projects() {
   return (
     <section className="relative isolate py-24 sm:py-32">
-      <Container>
+      <div className="aurora aurora-projects" aria-hidden />
+      <Container className="relative z-10">
         {/* Anchor element so heading appears at top on nav jump */}
         <div id="projects" className="h-0 scroll-mt-24 md:scroll-mt-32" />
         <SectionHeading

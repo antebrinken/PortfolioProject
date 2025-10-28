@@ -4,7 +4,8 @@ import SectionHeading from '../../components/SectionHeading'
 export default function Contact() {
   return (
     <section id="contact" className="relative isolate py-24 sm:py-32 scroll-mt-28 md:scroll-mt-32">
-      <Container>
+      <div className="aurora aurora-contact" aria-hidden />
+      <Container className="relative z-10">
         <SectionHeading
           eyebrow=""
           title="Let's build something great"

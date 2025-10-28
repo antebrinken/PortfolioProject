@@ -27,7 +27,8 @@ export default function TechStack() {
 
   return (
     <section id="tech" className="relative isolate py-24 sm:py-32 scroll-mt-28 md:scroll-mt-32">
-      <Container>
+      <div className="aurora aurora-tech" aria-hidden />
+      <Container className="relative z-10">
         <SectionHeading
           eyebrow=""
           title="The Tech Stack "

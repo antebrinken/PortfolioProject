@@ -4,7 +4,8 @@ import SectionHeading from '../../components/SectionHeading'
 export default function About() {
   return (
     <section id="about" className="relative isolate py-24 sm:py-32 scroll-mt-28 md:scroll-mt-32">
-      <Container>
+      <div className="aurora aurora-about" aria-hidden />
+      <Container className="relative z-10">
         <SectionHeading
           eyebrow=""
           title="A social software engineer"
