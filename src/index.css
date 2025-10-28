@@ -7,6 +7,10 @@
 @layer base {
   html, body, #root { height: 100%; }
   html { scroll-behavior: smooth; }
+  /* Prevent horizontal scrolling site‑wide */
+  html, body { overflow-x: hidden; }
+  /* Ensure page background matches app background to avoid stray black bands */
+  html, body { background-color: #1e1e1e; }
 }
 
 /* Utilities: subtle green-ish "moonlight" glows between sections */

@@ -11,15 +11,17 @@ const variants = {
 export default function RootLayout() {
   const location = useLocation()
   return (
-    <div className="min-h-screen bg-[#1e1e1e] text-[#EDEDED] relative isolate">
+    <div className="min-h-screen bg-[#1e1e1e] text-[#EDEDED] relative isolate flex flex-col">
       {/* Global noise texture behind content */}
       <div aria-hidden="true" className="noise" />
       {/* Global static starfield background */}
       <div aria-hidden className="stars" />
+      {/* Bottom seam guard to prevent any stray body stripe */}
+      <div aria-hidden className="pointer-events-none fixed inset-x-0 bottom-0 h-[2px] bg-[#1e1e1e] z-[1]" />
       <Header />
       <AnimatePresence mode="wait">
         <motion.main
-          className="relative z-10"
+          className="relative z-10 flex-1"
           key={location.pathname}
           variants={variants}
           initial="initial"
