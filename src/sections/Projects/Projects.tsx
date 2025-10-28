@@ -12,7 +12,7 @@ export default function Projects() {
           align="center"
         />
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-2 max-w-5xl mx-auto">
           {/* The Last TODO project */}
           <div className="rounded-xl border border-white/15 p-6 hover:border-white/30 transition">
             <div className="text-sm text-white/60">Web App</div>
