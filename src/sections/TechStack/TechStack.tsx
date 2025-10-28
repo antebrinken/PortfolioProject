@@ -39,20 +39,27 @@ export default function TechStack() {
         <div className="mt-12">
           <div className="group relative overflow-hidden">
             <div
-              className="flex w-max items-stretch gap-4 animate-marquee-right group-hover:[animation-play-state:paused]"
+              className="flex w-max items-stretch gap-4 animate-marquee-right group-hover:[animation-play-state:paused] group-focus-within:[animation-play-state:paused]"
               style={{ ['--marquee-duration' as any]: '38s' }}
             >
               {[...items, ...items, ...items].map(({ label, Icon, blurb }, idx) => (
-                <div key={`r1-${label}-${idx}`} className="relative group/item shrink-0">
+                <div
+                  key={`r1-${label}-${idx}`}
+                  className="relative group/item shrink-0"
+                  tabIndex={0}
+                  aria-describedby={`tt-${label.replace(/\s+/g, '-').toLowerCase()}-${idx}`}
+                  role="listitem"
+                >
                   <div className="rounded-xl border border-white/15 px-4 py-3 text-center transition hover:border-white/30 hover:bg-white/5">
                     <div className="mx-auto mb-1 flex h-10 w-10 items-center justify-center rounded-lg bg-white/5">
-                      <Icon className="h-5 w-5 text-white" aria-hidden />
+                      <Icon className="h-5 w-5 text-white" aria-hidden="true" />
                     </div>
                     <div className="text-xs text-white/90">{label}</div>
                   </div>
                   <span
                     role="tooltip"
-                    className="pointer-events-none absolute -top-2 left-1/2 -translate-x-1/2 -translate-y-full whitespace-nowrap rounded-md bg-white px-2 py-1 text-xs font-medium text-black opacity-0 shadow transition-opacity duration-150 group-hover/item:opacity-100"
+                    id={`tt-${label.replace(/\s+/g, '-').toLowerCase()}-${idx}`}
+                    className="pointer-events-none absolute -top-2 left-1/2 -translate-x-1/2 -translate-y-full whitespace-nowrap rounded-md bg-white px-2 py-1 text-xs font-medium text-black opacity-0 shadow transition-opacity duration-150 group-hover/item:opacity-100 group-focus-within/item:opacity-100"
                   >
                     {blurb}
                   </span>

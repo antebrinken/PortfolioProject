@@ -40,6 +40,9 @@
   @media (prefers-reduced-motion: reduce) {
     .animate-marquee-right { animation: none; }
     .animate-marquee-left { animation: none; }
+    /* Minimize nonessential transitions for accessibility */
+    .transition { transition: none !important; }
+    [class*="duration-"] { transition-duration: 0ms !important; }
   }
 
   /* Global subtle noise overlay */
