@@ -3,8 +3,10 @@ import SectionHeading from '../../components/SectionHeading'
 
 export default function Projects() {
   return (
-    <section id="projects" className="relative isolate py-24 sm:py-32 scroll-mt-28 md:scroll-mt-32">
+    <section className="relative isolate py-24 sm:py-32">
       <Container>
+        {/* Anchor element so heading appears at top on nav jump */}
+        <div id="projects" className="h-0 scroll-mt-24 md:scroll-mt-32" />
         <SectionHeading
           eyebrow=""
           title="Selected Projects"

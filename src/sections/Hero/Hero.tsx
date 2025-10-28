@@ -3,7 +3,7 @@ import SectionHeading from '../../components/SectionHeading'
 
 export default function Hero() {
   return (
-    <section id="hero" className="relative isolate min-h-[80vh] py-24 sm:py-32 flex items-center scroll-mt-28 md:scroll-mt-32">
+    <section id="hero" className="relative isolate min-h-screen py-24 sm:py-32 flex items-center scroll-mt-28 md:scroll-mt-32">
       <Container>
         <SectionHeading
           title="Philip Antebrink"
