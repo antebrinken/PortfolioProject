@@ -21,7 +21,7 @@ export default function Hero() {
           <a
             href="/cv/Philip-Antebrink-CV.pdf"
             download
-            className="rounded-lg border border-white/20 px-5 py-2.5 text-sm font-medium text-white hover:border-white/40 hover:bg-white/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30"
+            className="rounded-lg border border-white/20 px-5 py-2.5 text-sm font-medium text-[#EDEDED] hover:border-white/40 hover:bg-white/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30"
             title="Download my resume (PDF)"
             rel="noopener"
           >

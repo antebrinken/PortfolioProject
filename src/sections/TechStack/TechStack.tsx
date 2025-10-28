@@ -53,9 +53,9 @@ export default function TechStack() {
                 >
                   <div className="rounded-xl border border-white/15 px-4 py-3 text-center transition hover:border-white/30 hover:bg-white/5">
                     <div className="mx-auto mb-1 flex h-10 w-10 items-center justify-center rounded-lg bg-white/5">
-                      <Icon className="h-5 w-5 text-white" aria-hidden="true" />
+                      <Icon className="h-5 w-5 text-[#EDEDED]" aria-hidden="true" />
                     </div>
-                    <div className="text-xs text-white/90">{label}</div>
+                    <div className="text-xs text-[#EDEDED] opacity-90">{label}</div>
                   </div>
                   <span
                     role="tooltip"

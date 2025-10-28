@@ -6,7 +6,7 @@ import Contact from '../sections/Contact/Contact'
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen text-white">
+    <div className="min-h-screen">
       <Hero />
       <Projects />
       <TechStack />

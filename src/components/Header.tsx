@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 
 const linkBase = 'px-3 py-2 rounded-md text-sm font-medium transition-colors'
-const linkStyle = 'text-white/80 hover:text-white hover:bg-white/10'
+const linkStyle = 'text-[#EDEDED]/80 hover:text-[#EDEDED] hover:bg-white/10'
 
 const links = [
   { href: '#hero', label: 'Home' },
@@ -82,10 +82,10 @@ export default function Header() {
   }, [open])
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-black/60 backdrop-blur">
+    <header className="sticky top-0 z-40 w-full bg-[#1e1e1e]/60 backdrop-blur">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3 lg:px-8">
         <a href="#hero" className="font-semibold tracking-tight">
-          <span className="text-white">Portfolio</span>
+          <span className="text-[#EDEDED]">Portfolio</span>
         </a>
 
         {/* Desktop nav */}
@@ -100,7 +100,7 @@ export default function Header() {
         {/* Mobile hamburger */}
         <button
           type="button"
-          className="md:hidden inline-flex items-center justify-center rounded-md border border-white/20 p-2 text-white hover:bg-white/10"
+          className="md:hidden inline-flex items-center justify-center rounded-md border border-white/20 p-2 text-[#EDEDED] hover:bg-white/10"
           aria-label="Toggle navigation menu"
           aria-controls="mobile-menu"
           aria-expanded={open}
@@ -147,7 +147,7 @@ export default function Header() {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="md:hidden border-b border-white/10 bg-black/90 backdrop-blur"
+            className="md:hidden border-b border-white/10 bg-[#1e1e1e]/90 backdrop-blur"
             ref={menuRef}
           >
             <div className="mx-auto max-w-7xl px-6 py-3 lg:px-8">
@@ -157,7 +157,7 @@ export default function Header() {
                     key={href}
                     href={`/${href}`}
                     onClick={() => setOpen(false)}
-                    className="px-3 py-2 rounded-md text-base font-medium text-white/90 hover:text-white hover:bg-white/10"
+                    className="px-3 py-2 rounded-md text-base font-medium text-[#EDEDED]/90 hover:text-[#EDEDED] hover:bg-white/10"
                   >
                     {label}
                   </a>
@@ -180,7 +180,7 @@ export default function Header() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
             onClick={() => setOpen(false)}
-            className="fixed inset-0 z-30 bg-black/50 backdrop-blur-sm md:hidden"
+            className="fixed inset-0 z-30 bg-[#1e1e1e]/50 backdrop-blur-sm md:hidden"
           />
         ) : null}
       </AnimatePresence>

@@ -11,7 +11,7 @@ const variants = {
 export default function RootLayout() {
   const location = useLocation()
   return (
-    <div className="min-h-screen bg-black text-white relative isolate">
+    <div className="min-h-screen bg-[#1e1e1e] text-[#EDEDED] relative isolate">
       {/* Global noise texture behind content */}
       <div aria-hidden="true" className="noise" />
       {/* Global static starfield background */}

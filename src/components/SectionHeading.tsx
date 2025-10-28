@@ -17,7 +17,7 @@ export default function SectionHeading({ eyebrow, title, description, align = 'l
       ) : null}
       <h2 className="text-3xl font-bold tracking-tight sm:text-5xl">{title}</h2>
       {description ? (
-        <p className="mt-6 text-base leading-7 sm:text-lg sm:leading-8 text-white">{description}</p>
+        <p className="mt-6 text-base leading-7 sm:text-lg sm:leading-8 text-[#EDEDED]">{description}</p>
       ) : null}
     </div>
   )

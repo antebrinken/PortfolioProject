@@ -18,7 +18,7 @@ export default function Projects() {
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-2 max-w-5xl mx-auto">
           {/* The Last TODO project */}
           <div className="rounded-xl border border-white/15 p-6 hover:border-white/30 transition">
-            <div className="text-sm text-white/60">Web App</div>
+            <div className="text-sm text-[#EDEDED]/60">Web App</div>
             <div className="mt-2 text-lg font-semibold">The Last Todo</div>
             {/* Browser-style device chrome with full-bleed preview */}
             <div className="mt-3 overflow-hidden rounded-lg border border-white/10 bg-black/50">
@@ -37,11 +37,11 @@ export default function Projects() {
                 />
               </div>
             </div>
-            <p className="mt-3 text-sm text-white/70">
+            <p className="mt-3 text-sm text-[#EDEDED]/70">
               One of my last school projects before my internship started, a clean and responsive Todo application. Source at
-              {' '}<a className="underline hover:text-white" href="https://github.com/Medieinstitutet/fed24s-the-last-todo-antebrinken" target="_blank" rel="noreferrer">github.com/Medieinstitutet/fed24s-the-last-todo-antebrinken</a>.
+              {' '}<a className="underline hover:text-[#EDEDED]" href="https://github.com/Medieinstitutet/fed24s-the-last-todo-antebrinken" target="_blank" rel="noreferrer">github.com/Medieinstitutet/fed24s-the-last-todo-antebrinken</a>.
             </p>
-            <div className="mt-4 flex flex-wrap items-center gap-2 text-xs text-white/80">
+            <div className="mt-4 flex flex-wrap items-center gap-2 text-xs text-[#EDEDED]/80">
               <span className="rounded-md border border-white/20 px-2 py-1">React</span>
               <span className="rounded-md border border-white/20 px-2 py-1">TypeScript</span>
               <span className="rounded-md border border-white/20 px-2 py-1">Tailwind</span>
@@ -50,7 +50,7 @@ export default function Projects() {
 
           {/* The Zoo project */}
           <div className="rounded-xl border border-white/15 p-6 hover:border-white/30 transition">
-            <div className="text-sm text-white/60">Website</div>
+            <div className="text-sm text-[#EDEDED]/60">Website</div>
             <div className="mt-2 text-lg font-semibold">The Zoo</div>
             {/* Browser-style device chrome with full-bleed preview */}
             <div className="mt-3 overflow-hidden rounded-lg border border-white/10 bg-black/50">
@@ -69,10 +69,10 @@ export default function Projects() {
                 />
               </div>
             </div>
-            <p className="mt-3 text-sm text-white/70">
+            <p className="mt-3 text-sm text-[#EDEDED]/70">
               A school assignment exploring layout, accessibility, and clean UI for a zoo-themed site. Source at{' '}
               <a
-                className="underline hover:text-white"
+                className="underline hover:text-[#EDEDED]"
                 href="https://github.com/Medieinstitutet/fed24s-the-zoo-antebrinken"
                 target="_blank"
                 rel="noreferrer"
@@ -80,7 +80,7 @@ export default function Projects() {
                 github.com/Medieinstitutet/fed24s-the-zoo-antebrinken
               </a>.
             </p>
-            <div className="mt-4 flex flex-wrap items-center gap-2 text-xs text-white/80">
+            <div className="mt-4 flex flex-wrap items-center gap-2 text-xs text-[#EDEDED]/80">
               <span className="rounded-md border border-white/20 px-2 py-1">React</span>
               <span className="rounded-md border border-white/20 px-2 py-1">TypeScript</span>
               <span className="rounded-md border border-white/20 px-2 py-1">REST API</span>

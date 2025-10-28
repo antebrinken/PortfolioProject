@@ -14,7 +14,7 @@ export default function Contact() {
         />
 
         
-        <p className="mt-8 text-center text-sm text-white/70"> Contact me on my socials</p>
+          <p className="mt-8 text-center text-sm text-[#EDEDED]/70"> Contact me on my socials</p>
 
         {/* Social icons */}
         <div className="mt-6 flex items-center justify-center gap-4">
@@ -23,7 +23,7 @@ export default function Contact() {
             <a
               href="mailto:antebrinken@live.se"
               aria-label="Email via Outlook"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/30 text-white transition hover:border-white/60 hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/30 text-[#EDEDED] transition hover:border-white/60 hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -49,7 +49,7 @@ export default function Contact() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/30 text-white transition hover:border-white/60 hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/30 text-[#EDEDED] transition hover:border-white/60 hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -72,7 +72,7 @@ export default function Contact() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/30 text-white transition hover:border-white/60 hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/30 text-[#EDEDED] transition hover:border-white/60 hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
