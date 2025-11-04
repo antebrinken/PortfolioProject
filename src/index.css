@@ -24,6 +24,9 @@
   .tilt-card:hover {
     transform: perspective(900px) rotateX(1.25deg) rotateY(-2deg) translateY(-4px);
   }
+  .text-balance {
+    text-wrap: balance;
+  }
   @media (prefers-reduced-motion: reduce) {
     .tilt-card, .tilt-card:hover { transition: none; transform: none; }
   }

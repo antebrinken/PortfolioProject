@@ -3,7 +3,7 @@ import SectionHeading from '../../components/SectionHeading'
 
 export default function Contact() {
   return (
-    <section id="contact" className="relative isolate py-24 sm:py-32 scroll-mt-28 md:scroll-mt-32">
+    <section id="contact" className="relative isolate py-20 sm:py-28 lg:py-32 scroll-mt-[6.5rem] md:scroll-mt-[7.5rem]">
       <div className="aurora aurora-contact" aria-hidden />
       <Container className="relative z-10">
         <SectionHeading
@@ -16,7 +16,7 @@ export default function Contact() {
         <p className="mt-8 text-center text-sm text-[#EDEDED]/70">Contact me on my socials</p>
 
         {/* Social icons */}
-        <div className="mt-6 flex items-center justify-center gap-4">
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
           {/* Outlook / Email */}
           <div className="group relative">
             <a

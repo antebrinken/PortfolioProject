@@ -26,7 +26,7 @@ export default function TechStack() {
   ]
 
   return (
-    <section id="tech" className="relative isolate py-24 sm:py-32 scroll-mt-28 md:scroll-mt-32">
+    <section id="tech" className="relative isolate py-20 sm:py-28 lg:py-32 scroll-mt-[6.5rem] md:scroll-mt-[7.5rem]">
       <div className="aurora aurora-tech" aria-hidden />
       <Container className="relative z-10">
         <SectionHeading
@@ -37,8 +37,8 @@ export default function TechStack() {
         />
 
         {/* Single marquee row that pauses on hover */}
-        <div className="mt-12">
-          <div className="group relative overflow-hidden">
+        <div className="mt-10 sm:mt-12">
+          <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] px-3 py-6 sm:px-6">
             <div
               className="flex w-max items-stretch gap-4 animate-marquee-right group-hover:[animation-play-state:paused] group-focus-within:[animation-play-state:paused]"
               style={{ ['--marquee-duration' as any]: '38s' }}

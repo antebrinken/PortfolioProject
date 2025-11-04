@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import type { MouseEvent as ReactMouseEvent } from 'react'
 import { useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 
@@ -18,11 +19,57 @@ export default function Header() {
   const [activeId, setActiveId] = useState('hero')
   const location = useLocation()
   const menuRef = useRef<HTMLDivElement | null>(null)
+  const activeIdRef = useRef('hero')
+  const scrollTimeout = useRef<number | null>(null)
+
+  const scrollToSection = (target: HTMLElement) => {
+    const anchor =
+      target.querySelector<HTMLElement>('[data-section-anchor]') ?? target
+    anchor.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+
+  const handleNavClick =
+    (href: string, closeAfter = false) =>
+    (event: ReactMouseEvent<HTMLAnchorElement>) => {
+      event.preventDefault()
+      const id = href.replace('#', '')
+      const target = document.getElementById(id)
+      if (closeAfter) {
+        if (scrollTimeout.current) {
+          window.clearTimeout(scrollTimeout.current)
+        }
+        setOpen(false)
+      }
+      if (target) {
+        const runScroll = () => {
+          scrollToSection(target)
+          scrollTimeout.current = null
+        }
+        if (closeAfter) {
+          scrollTimeout.current = window.setTimeout(runScroll, 220)
+        } else {
+          runScroll()
+        }
+        activeIdRef.current = id
+        setActiveId(id)
+        if (typeof window !== 'undefined' && window.history) {
+          window.history.replaceState(null, '', href)
+        }
+      }
+    }
 
   useEffect(() => {
     // Close mobile menu on route change
     setOpen(false)
   }, [location.pathname])
+
+  useEffect(() => {
+    return () => {
+      if (scrollTimeout.current) {
+        window.clearTimeout(scrollTimeout.current)
+      }
+    }
+  }, [])
 
   useEffect(() => {
     const originalOverflow = document.body.style.overflow
@@ -90,13 +137,37 @@ export default function Header() {
       .filter(Boolean) as HTMLElement[]
     if (sections.length === 0) return
 
+    const visibleSections = new Map<string, number>()
+    let raf = 0
+
+    const updateActive = () => {
+      if (visibleSections.size === 0) return
+      let nextId = activeIdRef.current
+      let maxRatio = 0
+      visibleSections.forEach((ratio, id) => {
+        if (ratio > maxRatio) {
+          maxRatio = ratio
+          nextId = id
+        }
+      })
+      if (nextId !== activeIdRef.current) {
+        activeIdRef.current = nextId
+        setActiveId(nextId)
+      }
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
+          const id = entry.target.id
           if (entry.isIntersecting) {
-            setActiveId(entry.target.id)
+            visibleSections.set(id, entry.intersectionRatio)
+          } else {
+            visibleSections.delete(id)
           }
         })
+        cancelAnimationFrame(raf)
+        raf = requestAnimationFrame(updateActive)
       },
       {
         root: null,
@@ -105,11 +176,14 @@ export default function Header() {
       }
     )
     sections.forEach((el) => observer.observe(el))
-    return () => observer.disconnect()
+    return () => {
+      cancelAnimationFrame(raf)
+      observer.disconnect()
+    }
   }, [])
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-[#1e1e1e]/60 backdrop-blur">
+    <header className="sticky top-0 z-40 w-full bg-[#1e1e1e]/60">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3 lg:px-8">
         <a href="#hero" className="font-semibold tracking-tight">
           <span className="text-[#EDEDED]">Philip Antebrink</span>
@@ -120,9 +194,13 @@ export default function Header() {
           {links.map(({ href, label }) => {
             const id = href.replace('#', '')
             const isActive = activeId === id
-            const activeCls = isActive ? 'text-[#EDEDED] bg-white/10' : ''
             return (
-              <a key={href} href={`/${href}`} className={`${linkBase} ${linkStyle} ${activeCls}`}>
+              <a
+                key={href}
+                href={href}
+                onClick={handleNavClick(href)}
+                className={`${linkBase} ${linkStyle} ${isActive ? 'text-[#EDEDED] bg-white/10' : ''}`}
+              >
                 {label}
               </a>
             )
@@ -179,7 +257,7 @@ export default function Header() {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="md:hidden border-b border-white/10 bg-[#1e1e1e]/90 backdrop-blur"
+            className="md:hidden relative z-40 border-b border-white/10 bg-[#1e1e1e]/90 backdrop-blur-md shadow-lg"
             ref={menuRef}
           >
             <div className="mx-auto max-w-7xl px-6 py-3 lg:px-8">
@@ -187,13 +265,14 @@ export default function Header() {
                 {links.map(({ href, label }) => {
                   const id = href.replace('#', '')
                   const isActive = activeId === id
-                  const activeCls = isActive ? 'text-[#EDEDED] bg-white/10' : 'text-[#EDEDED]/90'
                   return (
                     <a
                       key={href}
-                      href={`/${href}`}
-                      onClick={() => setOpen(false)}
-                      className={`px-3 py-2 rounded-md text-base font-medium hover:text-[#EDEDED] hover:bg-white/10 ${activeCls}`}
+                      href={href}
+                      onClick={handleNavClick(href, true)}
+                      className={`px-3 py-2 rounded-md text-base font-medium text-white hover:text-white hover:bg-white/10 ${
+                        isActive ? 'bg-white/10' : ''
+                      }`}
                     >
                       {label}
                     </a>
@@ -217,7 +296,7 @@ export default function Header() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
             onClick={() => setOpen(false)}
-            className="fixed inset-0 z-30 bg-[#1e1e1e]/50 backdrop-blur-sm md:hidden"
+            className="fixed inset-0 z-30 bg-[#0f0f0f]/50 backdrop-blur-sm md:hidden"
           />
         ) : null}
       </AnimatePresence>
